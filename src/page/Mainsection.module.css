@@ -21,7 +21,8 @@
   & .createnotebtn {
     height: 6.5vh;
     padding-inline: 3vh;
-    margin-top: 4vh;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
     border-radius: 50px;
     background: #000;
     color: #fff;
@@ -31,6 +32,9 @@
     font-weight: 500;
     line-height: 97.688%; /* 26.376px */
     letter-spacing: 0.54px;
+  }
+  & .containers{
+    padding-left: 5vh;
   }
   & .rightsection {
     background-color: #f7ecdc;

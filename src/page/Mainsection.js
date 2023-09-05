@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import main from './Mainsection.module.css';
+import Notetile from '../component/Notetile';
 // #region constants
 
 // #endregion
@@ -21,18 +22,27 @@ const defaultProps = {};
  *
  */
 const Mainsection = () => {
-    return <div className={main.webapp}>
-        <div className={main.leftsection}>
-            <h1 className={main.subheading}>
-            Pocket Notes
-            </h1>
-            <div className={main.containers}>
-                <button className={main.createnotebtn}> + Create Notes group</button>
-                
-            </div>
+  let [note, setNote] = useState();
+
+  return (
+    <div className={main.webapp}>
+      <div className={main.leftsection}>
+        <h1 className={main.subheading}>Pocket Notes</h1>
+        <div className={main.containers}>
+          <button className={main.createnotebtn} onClick={1 + 1}>
+            {' '}
+            + Create Notes group
+          </button>
+          <Notetile />
+          <Notetile />
+          <Notetile />
+          <Notetile />
+          <Notetile />
         </div>
-        <div className={main.rightsection}>ab</div>
-    </div>;
+      </div>
+      <div className={main.rightsection}>ab</div>
+    </div>
+  );
 };
 
 Mainsection.propTypes = propTypes;
