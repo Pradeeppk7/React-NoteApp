@@ -33,7 +33,7 @@
     line-height: 97.688%; /* 26.376px */
     letter-spacing: 0.54px;
   }
-  & .containers{
+  & .containers {
     padding-left: 5vh;
   }
   & .rightsection {
@@ -42,3 +42,130 @@
     width: 70vw;
   }
 }
+.popup {
+  position: absolute;
+  background-color: aqua;
+  padding-inline: 5vh;
+  padding-top: 2vh;
+  bottom: -50vh;
+  left: 15vw;
+  width: 50vw;
+  height: 35vh;
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: #e40303;
+  & h2 {
+    color: #000;
+    font-family: Roboto;
+    font-size: 29px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160.188%; /* 46.454px */
+    letter-spacing: 1.015px;
+  }
+  & label {
+    color: #000;
+    font-family: Roboto;
+    font-size: 27.314px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160.188%; /* 43.754px */
+    letter-spacing: 0.956px;
+  }
+}
+.inputhead {
+  height: 5vh;
+  width: 30vw;
+  padding-left: 2vh;
+  border-radius: 2.3vh;
+  border: 2px solid #ccc;
+  background: #fff;
+  margin-left: 3vh;
+}
+.inputhead::placeholder {
+  color: #979797;
+  font-family: Roboto;
+  font-size:3vh;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160.188%; /* 36.843px */
+  letter-spacing: 0.805px;
+  padding-left: 2vh;
+}
+
+.createpopup {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2vh;
+}
+.popbtn {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  & button {
+    border-radius: 11px;
+    background: #000;
+    color: #fff;
+    font-family: Roboto;
+    width: 20vh;
+    height: 5vh;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160.188%; /* 32.038px */
+    letter-spacing: 0.7px;
+  }
+}
+
+.clr1{
+  background-color: #B38BFA;
+  border-radius: 100%;
+  height: 5vh;
+  width: 5vh;
+  margin-inline: .7vh;
+}
+.clr2{
+  background-color: #FF79F2;
+  border-radius: 100%;
+  height: 5vh;
+  width: 5vh;
+  margin-inline: .7vh;
+}
+.clr3{
+  background-color: #43E6FC;
+  border-radius: 100%;
+  height: 5vh;
+  width: 5vh;
+  margin-inline: .7vh;
+}
+.clr4{
+  background-color: #F19576;
+  border-radius: 100%;
+  height: 5vh;
+  width: 5vh;
+  margin-inline: .7vh;
+}
+.clr5{
+  background-color: #0047FF;
+  border-radius: 100%;
+  height: 5vh;
+  width: 5vh;
+  margin-inline: .7vh;
+}
+.clr6{
+  background-color: #6691FF;
+  border-radius: 100%;
+  height: 5vh;
+  width: 5vh;
+  margin-inline: .7vh;
+}
+
+
+.rowclr{
+  display: flex;
+  margin-block: 2vh;
+  & label{
+    margin-right: 2vh;
+  }
+}
+
