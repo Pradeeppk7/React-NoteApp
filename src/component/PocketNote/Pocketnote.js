@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import note from './Pocketnote.module.css';
 import useNoteContext from '../../context/useNoteContext';
 import enterlogo from '../../assets/arrow.svg';
+import Displaytile from './DisplayNotetile';
+
 // #region constants
 
 // #endregion
@@ -41,35 +43,72 @@ const Pocketnote = () => {
       .toUpperCase();
 
     return firstLetters;
-    };
-    const handleText = (e) => {
-        setText(e.target.value);
+  };
+  const handleText = (e) => {
+    setText(e.target.value);
+  };
+  const handleKey = (e) => {
+    let newline = '<br><br/>'
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSaveNotes();
     }
-    const handleKey = (e) => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          handleSaveNotes();
-          }
+    else if(e.key === 'Enter' && e.shiftKey) {
+      setText(e.target.value);
     }
+  };
   useEffect(() => {
     setNotes(JSON.parse(localStorage.getItem(selectedNote)) || []);
     const groupNames = JSON.parse(localStorage.getItem('groupNames'));
-    const selectedGroupname = groupNames.find(
-      (item) => item.name === selectedNote
-    );
-    if (selectedNote) {
-      setBgColor(selectedGroupname.bgcolor);
-      setTitle(selectedGroupname.name);
+    if (groupNames) {
+      const selectedGroupname = groupNames.find(
+        (item) => item.name === selectedNote
+      );
+      if (selectedNote) {
+        setBgColor(selectedGroupname.bgcolor);
+        setTitle(selectedGroupname.name);
+      }
     }
   }, [selectedNote, setNotes]);
 
-  const getDate = () => {
-    return new Date().toLocaleDateString("en-GB", {
-      day: "numeric",
-      month: "numeric",
-      year: "numeric",
-    })
-  }
+  // const getData = () => {
+  //   let d = new Date();
+
+  //   return
+  // }
+
+  const getData = () => {
+    let d = new Date().toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'numeric',
+      year: 'numeric',
+    });
+
+    const monthNames = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    let dd = d.slice(0, 2);
+    let yy = d.slice(6, 10);
+    let mm = monthNames[d.slice(3, 5) - 1];
+    return `${dd} ${mm} ${yy}`;
+  };
+  // const getData = () => {
+  //   let d = new Date();
+  //   let s = d.getDate() + '-' + d.toString() + '-' + d.getFullYear();
+  //   return s;
+  // };
+
   const handleSaveNotes = () => {
     if (!text.trim()) {
       return;
@@ -79,12 +118,12 @@ const Pocketnote = () => {
       id: Date.now(),
       title: selectedNote,
       content: text.trim(),
-      date:getDate(),
+      date: getData(),
       time: new Date().toLocaleTimeString(),
     };
     notes.push(newNoteObj);
     localStorage.setItem(selectedNote, JSON.stringify(notes));
-    setText("");
+    setText('');
     setNotes(notes);
   };
   return (
@@ -102,16 +141,20 @@ const Pocketnote = () => {
           </div>
         </div>
         <div className={note.noterack}>
-          
+          {notes && notes.length > 0
+            ? notes.map((note, index) => (
+                <Displaytile key={index} data={note} />
+              ))
+            : null}
         </div>
-              <div className={note.textarea}>
-              <textarea
-          value={text}
-          placeholder="Enter your text here......"
-          onChange={handleText}
-          onKeyDown={handleKey}
-        ></textarea>
-        <img src = {enterlogo} onClick={handleSaveNotes} alt="My Happy SVG"/>
+        <div className={note.textarea}>
+          <textarea
+            value={text}
+            placeholder="Enter your text here......"
+            onChange={handleText}
+            onKeyDown={handleKey}
+          ></textarea>
+          <img src={enterlogo} onClick={handleSaveNotes} alt="My Happy SVG" />
         </div>
       </div>
     </div>

@@ -3,6 +3,8 @@ import main from './Mainsection.module.css';
 import Notetile from '../component/Notetile';
 import Popup from 'reactjs-popup';
 import Pocketnote from '../component/PocketNote/Pocketnote';
+import EmptyPocket from '../component/PocketNote/EmptyPocket';
+import useNoteContext from '../context/useNoteContext';
 // #region constants
 
 // #endregion
@@ -26,6 +28,7 @@ const Mainsection = () => {
   let [input, setInput] = useState('');
   let [color, setColor] = useState('');
   let [pop, setPop] = useState(false);
+  const {selectedNote } = useNoteContext();
 
   useEffect(() => {
     const data = localStorage.getItem('groupNames');
@@ -167,7 +170,7 @@ const Mainsection = () => {
           
         </div>
       </div>
-      <div className={main.rightsection}><Pocketnote></Pocketnote></div>
+      <div className={main.rightsection}>{ selectedNote===""?<EmptyPocket/>:<Pocketnote/>}</div>
     </div>
   );
 };

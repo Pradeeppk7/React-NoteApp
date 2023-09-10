@@ -57,12 +57,14 @@
 }
 
 .noterack {
-  height: 60vh;
+  height: 58vh;
   background-color: #f7ecdc;
+  overflow-y: auto;
+  padding-bottom: 2vh;
 }
 .textarea {
   position: relative;
-  & img{
+  & img {
     position: absolute;
     bottom: 1vh;
     right: 2vh;
@@ -90,6 +92,39 @@
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.596px;
-   
+  }
+}
+.datatile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: start;
+  padding-inline: 4vh;
+  padding-top: 3vh;
+
+  & h2 {
+    padding-top: 0.8vh;
+    color: #353535;
+    font-family: Roboto;
+    font-size: 2vh;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 97.688%; /* 18.204px */
+    letter-spacing: 0.373px;
+  }
+  & .content {
+    color: #000;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160.188%; /* 28.834px */
+    letter-spacing: 0.63px;
+  }
+  & .leftsection {
+    width: 15vw;
+  }
+  & .rightsection {
+    width: 60vw;
+    margin-left: 2vh;
   }
 }
