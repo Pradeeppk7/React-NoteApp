@@ -28,7 +28,7 @@ const Mainsection = () => {
   let [input, setInput] = useState('');
   let [color, setColor] = useState('');
   let [pop, setPop] = useState(false);
-  const {selectedNote } = useNoteContext();
+  const { selectedNote } = useNoteContext();
 
   useEffect(() => {
     const data = localStorage.getItem('groupNames');
@@ -80,6 +80,7 @@ const Mainsection = () => {
 
   return (
     <div className={main.webapp}>
+      { pop===true? <div className={main.transparent} onClick={handleclosepopup}></div>:null}
       <div className={main.leftsection}>
         <h1 className={main.subheading}>Pocket Notes</h1>
         <div className={main.containers}>
@@ -113,37 +114,37 @@ const Mainsection = () => {
                   <div className={main.rowclr}>
                     <label>Choose colour</label>
                     <button
-                      className={main.clr1}
+                      className={main.clr1 + " " + (color==="#B38BFA"?main.highlightbtn:null)}
                       name="color"
                       value="#B38BFA"
                       onClick={settingColor}
                     ></button>
                     <button
-                      className={main.clr2}
+                      className={main.clr2 + " " + (color==="#FF79F2"?main.highlightbtn:null)}
                       name="color"
                       value="#FF79F2"
                       onClick={settingColor}
                     ></button>
                     <button
-                      className={main.clr3}
+                      className={main.clr3 + " " + (color==="#43E6FC"?main.highlightbtn:null)}
                       name="color"
                       value="#43E6FC"
                       onClick={settingColor}
                     ></button>
                     <button
-                      className={main.clr4}
+                      className={main.clr4 + " " + (color==="#F19576"?main.highlightbtn:null)}
                       name="color"
                       value="#F19576"
                       onClick={settingColor}
                     ></button>
                     <button
-                      className={main.clr5}
+                      className={main.clr5 + " " + (color==="#0047FF"?main.highlightbtn:null)}
                       name="color"
                       value="#0047FF"
                       onClick={settingColor}
                     ></button>
                     <button
-                      className={main.clr6}
+                      className={main.clr6 + " " + (color==="#6691FF"?main.highlightbtn:null)}
                       name="color"
                       value="#6691FF"
                       onClick={settingColor}
@@ -161,16 +162,18 @@ const Mainsection = () => {
               </div>
             )}
           </Popup>
+          <div className={main.notetitlerack}>
           {grouptittle.length > 0
             ? grouptittle.map((items, index) => (
-              <Notetile key={index} title={items} />
+                <Notetile key={index} title={items} />
               ))
-            : null}
-
-          
+              : null}
+            </div>
         </div>
       </div>
-      <div className={main.rightsection}>{ selectedNote===""?<EmptyPocket/>:<Pocketnote/>}</div>
+      <div className={main.rightsection}>
+        {selectedNote === '' ? <EmptyPocket /> : <Pocketnote />}
+      </div>
     </div>
   );
 };

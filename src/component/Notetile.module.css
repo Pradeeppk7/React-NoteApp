@@ -3,9 +3,12 @@
   justify-content:flex-start;
   align-items: center;
   margin-top: 1.5vh;
+  padding: 2vh;
+  border-radius: 32px 0px 0px 32px;
+
 }
 .selectedtile{
-  background-color: aqua;
+  background-color: #F7ECDC;;
 }
 .shorthand {
   border-radius: 100%;
