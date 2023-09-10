@@ -56,7 +56,40 @@
   background-color: #ffffff;
 }
 
-.noterack{
-    height:60vh ;
-    background-color: #F7ECDC;
+.noterack {
+  height: 60vh;
+  background-color: #f7ecdc;
+}
+.textarea {
+  position: relative;
+  & img{
+    position: absolute;
+    bottom: 1vh;
+    right: 2vh;
+  }
+  & textarea {
+    height: 18vh;
+    width: 61vw;
+    border: none;
+    color: #0a0909;
+    font-family: Roboto;
+    font-size: 29.816px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.596px;
+    padding-left: 2vh;
+    padding-top: 2vh;
+    outline: none;
+  }
+  & textarea::placeholder {
+    color: #9a9a9a;
+    font-family: Roboto;
+    font-size: 29.816px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.596px;
+   
+  }
 }
