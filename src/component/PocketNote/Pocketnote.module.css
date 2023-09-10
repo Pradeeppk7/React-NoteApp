@@ -128,3 +128,44 @@
     margin-left: 2vh;
   }
 }
+
+.bottomcontent {
+  display: flex;
+  position: absolute;
+  bottom: 4vh;
+  & img {
+    margin-right: 1vh;
+  }
+}
+.head {
+  color: #000;
+  font-family: Roboto;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1px;
+}
+.sub {
+  color: #292929;
+  font-family: Roboto;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 145.455% */
+  letter-spacing: 0.44px;
+}
+.emptypocket{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & .emptybg{
+    margin-top: 15vh;
+    height: 35vh;
+    width: 70vh;
+  }
+}
+.emptylock{
+  height: 4vh;
+}
