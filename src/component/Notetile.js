@@ -1,7 +1,6 @@
 import React from 'react';
 import tile from './Notetile.module.css';
 import useNoteContext from '../context/useNoteContext';
-import Moment from 'react-moment';
 // #region constants
 
 // #endregion
