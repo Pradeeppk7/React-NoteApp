@@ -4,6 +4,9 @@
   align-items: center;
   margin-top: 1.5vh;
 }
+.selectedtile{
+  background-color: aqua;
+}
 .shorthand {
   border-radius: 100%;
   width: 8.5vh;

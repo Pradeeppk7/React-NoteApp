@@ -1,5 +1,6 @@
 import React from 'react';
 import tile from './Notetile.module.css';
+import useNoteContext from '../context/useNoteContext';
 // #region constants
 
 // #endregion
@@ -19,32 +20,41 @@ import tile from './Notetile.module.css';
  */
 
 const Notetile = ({ title }) => {
-  
-  const capitalizeFirst = str => {
+  const { selectedNote, setSelectedNote } = useNoteContext();
+
+  const capitalizeFirst = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
-  
- 
-  const getFirstLetters = str => {
+
+  const getFirstLetters = (str) => {
     const firstLetters = str
       .split(' ')
-      .map(word => word.charAt(0))
+      .map((word) => word.charAt(0))
       .join('')
-      .slice(0,2)
+      .slice(0, 2)
       .toUpperCase();
-  
+
     return firstLetters;
+  };
+  const handleSelect = () => {
+    setSelectedNote(title[0].name);
   }
-  
 
   return (
-    <div className={tile.tile} >
-      <div className={tile.shorthand} style={{ backgroundColor: title[0].bgcolor }}>
+    <div className={tile.tile + " " + (selectedNote===title[0].name?tile.selectedtile:null)} onClick={handleSelect}>
+      <div
+        className={tile.shorthand}
+        style={{ backgroundColor: title[0].bgcolor }}
+      >
         <h2>{getFirstLetters(title[0].name)}</h2>{' '}
       </div>
       <div className={tile.noteheading}>
         {' '}
-        {title.length > 0 ? <h2>{capitalizeFirst(title[0].name)}</h2> : <p>loading</p>}
+        {title.length > 0 ? (
+          <h2>{capitalizeFirst(title[0].name)}</h2>
+        ) : (
+          <p>loading</p>
+        )}
       </div>
     </div>
   );
