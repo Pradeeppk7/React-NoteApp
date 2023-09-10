@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import main from './Mainsection.module.css';
 import Notetile from '../component/Notetile';
 import Popup from 'reactjs-popup';
+import Pocketnote from '../component/PocketNote/Pocketnote';
 // #region constants
 
 // #endregion
@@ -166,7 +167,7 @@ const Mainsection = () => {
           
         </div>
       </div>
-      <div className={main.rightsection}>ab</div>
+      <div className={main.rightsection}><Pocketnote></Pocketnote></div>
     </div>
   );
 };
