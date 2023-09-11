@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import note from './Pocketnote.module.css';
+import note from './MobileNotes.module.css';
 import useNoteContext from '../../context/useNoteContext';
-import enterlogo from '../../assets/arrow.svg';
-import Displaytile from './DisplayNotetile';
 
+import { useNavigate } from 'react-router-dom';
+import enterlogo from '../../assets/arrow.svg';
+import back from '../../assets/backarrow.svg';
+import DisplayNotetile from './DisplayNotetile';
 // #region constants
 
 // #endregion
@@ -17,19 +19,17 @@ import Displaytile from './DisplayNotetile';
 // #endregion
 
 // #region component
-const propTypes = {};
-
-const defaultProps = {};
 
 /**
  *
  */
-const Pocketnote = () => {
+const MobileNotesection = () => {
   const [text, setText] = useState('');
   const [bgColor, setBgColor] = useState('#fff');
   const [Title, setTitle] = useState('');
   const { notes, setNotes, selectedNote } = useNoteContext();
-
+    
+  const navigate = useNavigate();
   const capitalizeFirst = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
@@ -48,12 +48,11 @@ const Pocketnote = () => {
     setText(e.target.value);
   };
   const handleKey = (e) => {
-    let newline = '<br><br/>'
+    let newline = '<br><br/>';
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSaveNotes();
-    }
-    else if(e.key === 'Enter' && e.shiftKey) {
+    } else if (e.key === 'Enter' && e.shiftKey) {
       setText(e.target.value);
     }
   };
@@ -125,44 +124,39 @@ const Pocketnote = () => {
     localStorage.setItem(selectedNote, JSON.stringify(notes));
     setText('');
     setNotes(notes);
-  };
+    };
+    const backtohome = () => {
+        navigate('/');
+    }
   return (
-    <div className={note.section}>
-      <div className={note.layer}>
-        <div className={note.heading}>
-          <div
-            className={note.displayname}
-            style={{ backgroundColor: bgColor }}
-          >
-            <h2>{getFirstLetters(Title)}</h2>
-          </div>
-          <div className={note.title}>
-            <h2>{capitalizeFirst(Title)}</h2>
-          </div>
+    <div className={note.app}>
+          <div className={note.heading}>
+              <img src={back} alt=""  onClick={backtohome}/>
+        <div className={note.displayname} style={{ backgroundColor: bgColor }}>
+          <h2>{getFirstLetters(Title)}</h2>
         </div>
-        <div className={note.noterack}>
-          {notes && notes.length > 0
-            ? notes.map((note, index) => (
-                <Displaytile key={index} data={note} />
-              ))
-            : null}
+        <div className={note.title}>
+          <h2>{capitalizeFirst(Title)}</h2>
         </div>
-        <div className={note.textarea}>
-          <textarea
-            value={text}
-            placeholder="Enter your text here......"
-            onChange={handleText}
-            onKeyDown={handleKey}
-          ></textarea>
-          <img src={enterlogo} onClick={handleSaveNotes} alt="loading" />
-        </div>
+      </div>
+      <div className={note.noterack}>
+        {notes && notes.length > 0
+          ? notes.map((note, index) => (
+              <DisplayNotetile key={index} data={note} />
+            ))
+          : null}
+      </div>
+      <div className={note.textarea}>
+        <textarea
+          value={text}
+          placeholder="Enter your text here......"
+          onChange={handleText}
+          onKeyDown={handleKey}
+        ></textarea>
+        <img src={enterlogo} onClick={handleSaveNotes} alt="loading" />
       </div>
     </div>
   );
 };
 
-Pocketnote.propTypes = propTypes;
-Pocketnote.defaultProps = defaultProps;
-// #endregion
-
-export default Pocketnote;
+export default MobileNotesection;

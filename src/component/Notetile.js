@@ -1,6 +1,7 @@
 import React from 'react';
 import tile from './Notetile.module.css';
 import useNoteContext from '../context/useNoteContext';
+import { useNavigate } from 'react-router-dom';
 // #region constants
 
 // #endregion
@@ -18,10 +19,10 @@ import useNoteContext from '../context/useNoteContext';
 /**
  *
  */
-
 const Notetile = ({ title }) => {
   const { selectedNote, setSelectedNote } = useNoteContext();
-
+  const navigate = useNavigate();
+  
   const capitalizeFirst = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
@@ -36,12 +37,27 @@ const Notetile = ({ title }) => {
 
     return firstLetters;
   };
+
+  const notepage = () => {
+    navigate('/notes');
+  };
+
   const handleSelect = () => {
     setSelectedNote(title[0].name);
-  }
+    if (window.innerWidth < 480) {
+      notepage();
+    }
+  };
 
   return (
-    <div className={tile.tile + " " + (selectedNote===title[0].name?tile.selectedtile:null)} onClick={handleSelect}>
+    <div
+      className={
+        tile.tile +
+        ' ' +
+        (selectedNote === title[0].name ? tile.selectedtile : null)
+      }
+      onClick={handleSelect}
+    >
       <div
         className={tile.shorthand}
         style={{ backgroundColor: title[0].bgcolor }}
