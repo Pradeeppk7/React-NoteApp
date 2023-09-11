@@ -49,11 +49,9 @@ const MobileNotesection = () => {
   };
   const handleKey = (e) => {
     let newline = '<br><br/>';
-    if (e.key === 'Enter' && !e.shiftKey) {
+    if (e.key === 'Enter' ) {
       e.preventDefault();
-      handleSaveNotes();
-    } else if (e.key === 'Enter' && e.shiftKey) {
-      setText(e.target.value);
+      setText(e.target.value + `\n`);
     }
   };
   useEffect(() => {
