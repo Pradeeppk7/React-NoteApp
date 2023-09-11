@@ -71,7 +71,7 @@
   }
   & textarea {
     height: 15vh;
-    width: 61vw;
+    width: 60vw;
     border: none;
     color: #0a0909;
     font-family: Roboto;
@@ -81,7 +81,7 @@
     line-height: normal;
     letter-spacing: 0.596px;
     padding-left: 2vh;
-    padding-top: 2vh;
+    padding-top: .5vh;
     outline: none;
   }
   & textarea::placeholder {
@@ -201,6 +201,5 @@
 }
 
 .rack {
-  background-color: aqua;
   width: 14vh;
 }

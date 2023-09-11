@@ -83,6 +83,7 @@ const MobileMainsection = () => {
   };
   return (
     <div className={main.main}>
+       { pop===true? <div className={main.transparent} onClick={handleclosepopup}></div>:null}
       <div className={main.heading}>
         <h1>Pocket Notes</h1>
       </div>
