@@ -31,7 +31,7 @@
   }
 }
 .title {
-margin-left: 2vh;
+  margin-left: 2vh;
   color: #000;
   font-family: Roboto;
   font-size: 16.72px;
@@ -39,4 +39,36 @@ margin-left: 2vh;
   font-weight: 500;
   line-height: normal;
   letter-spacing: 0.334px;
+}
+.noterack {
+  background-color: #f7ecdc;
+  height: 65vh;
+  overflow-y: auto;
+  padding-bottom: 1vh;
+}
+.textarea {
+  height: 24vh;
+  position: relative;
+  & img{
+    position: absolute;
+    bottom: 3vh;
+    right:3vh;
+    height: 3vh;
+  }
+}
+textarea {
+  margin-block: 2vh;
+  margin-inline: 2vh;
+  border-radius: 1vh;
+  padding: 1vh;
+  height: 18vh;
+  width: 86vw;
+  color: #000000;
+  font-family: Roboto;
+  font-size: 17.706px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.354px;
+  outline: none;
 }

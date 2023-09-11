@@ -70,7 +70,7 @@
     right: 2vh;
   }
   & textarea {
-    height: 18vh;
+    height: 15vh;
     width: 61vw;
     border: none;
     color: #0a0909;
@@ -92,6 +92,36 @@
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.596px;
+  }
+}
+.mobiletile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: start;
+  padding-inline: 1vh;
+  padding-top: 2vh;
+  & h2 {
+    padding-top: 0.8vh;
+    color: #353535;
+    font-family: Roboto;
+    font-size: 1.4vh;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 97.688%; /* 18.204px */
+    letter-spacing: 0.373px;
+  }
+  & #content {
+    padding-inline: 1vh;
+    color: #000000;
+    font-family: Roboto;
+    font-size: 1.8vh;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160.188%; /* 28.834px */
+    letter-spacing: 0.63px;
+  }
+  .rightsection {
+    width: 32vh;
   }
 }
 .datatile {
@@ -155,17 +185,22 @@
   line-height: 32px; /* 145.455% */
   letter-spacing: 0.44px;
 }
-.emptypocket{
+.emptypocket {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  & .emptybg{
+  & .emptybg {
     margin-top: 15vh;
     height: 35vh;
     width: 70vh;
   }
 }
-.emptylock{
+.emptylock {
   height: 4vh;
+}
+
+.rack {
+  background-color: aqua;
+  width: 14vh;
 }

@@ -28,7 +28,7 @@ const MobileNotesection = () => {
   const [bgColor, setBgColor] = useState('#fff');
   const [Title, setTitle] = useState('');
   const { notes, setNotes, selectedNote } = useNoteContext();
-    
+
   const navigate = useNavigate();
   const capitalizeFirst = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -124,14 +124,14 @@ const MobileNotesection = () => {
     localStorage.setItem(selectedNote, JSON.stringify(notes));
     setText('');
     setNotes(notes);
-    };
-    const backtohome = () => {
-        navigate('/');
-    }
+  };
+  const backtohome = () => {
+    navigate('/');
+  };
   return (
     <div className={note.app}>
-          <div className={note.heading}>
-              <img src={back} alt=""  onClick={backtohome}/>
+      <div className={note.heading}>
+        <img src={back} alt="" onClick={backtohome} />
         <div className={note.displayname} style={{ backgroundColor: bgColor }}>
           <h2>{getFirstLetters(Title)}</h2>
         </div>

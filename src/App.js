@@ -19,19 +19,21 @@ function App() {
 
   return (
     <Provider>
+      <Router>
       {screenSize > 480 ? (
       <div className="app">
         <Mainsection />
       </div>
       ) :(
-        <Router>
+        
           <Routes>
             <Route path="/" element={<MobileMainsection />} />
             <Route path="/notes" element={<MobileNotesection />} />
           </Routes>
-        </Router>
+        
       )
         }
+        </Router>
     </Provider>
   );
 }
