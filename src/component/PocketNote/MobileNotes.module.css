@@ -63,6 +63,7 @@ textarea {
   padding: 1vh;
   height: 18vh;
   width: 86vw;
+  border:none;
   color: #000000;
   font-family: Roboto;
   font-size: 17.706px;

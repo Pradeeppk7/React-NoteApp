@@ -69,7 +69,7 @@
 }
 .transparent{
   background-color:  rgba(47, 47, 47, 0.75);;
-  height: 100vh;
+  height: 103vh;
   width: 100vw;
   z-index: 100;
   position: absolute;
