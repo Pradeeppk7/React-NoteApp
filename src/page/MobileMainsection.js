@@ -4,9 +4,6 @@ import main from '../page/Mobile.module.css';
 import Popup from 'reactjs-popup';
 import Notetile from '../component/Notetile';
 
-
-
-
 // #region constants
 
 // #endregion
@@ -31,8 +28,7 @@ const MobileMainsection = () => {
   let [color, setColor] = useState('');
   let [pop, setPop] = useState(false);
   const { selectedNote } = useNoteContext();
-    
-    
+
   useEffect(() => {
     const data = localStorage.getItem('groupNames');
     if (data) {
@@ -47,12 +43,9 @@ const MobileMainsection = () => {
       const obj = JSON.parse(localStorage.getItem('groupNames'));
       const result = Object.keys(obj).map((key) => [obj[key]]);
       setGrouptittles(result);
-      console.log(result);
-      console.log(groupNames);
     }
   }, [groupNames]);
 
-   
   const handleInput = (e) => {
     setInput(e.target.value);
   };
@@ -74,16 +67,16 @@ const MobileMainsection = () => {
   };
 
   const handleclosepopup = () => {
-    console.log('false');
     setPop(false);
   };
   const handlepopup = () => {
-    console.log('true');
     setPop(true);
   };
   return (
     <div className={main.main}>
-       { pop===true? <div className={main.transparent} onClick={handleclosepopup}></div>:null}
+      {pop === true ? (
+        <div className={main.transparent} onClick={handleclosepopup}></div>
+      ) : null}
       <div className={main.heading}>
         <h1>Pocket Notes</h1>
       </div>
@@ -104,7 +97,7 @@ const MobileMainsection = () => {
             <div className={main.content}>
               <h2 className={main.popuph2}>Create New Notes group</h2>
               <div className={main.createpopup}>
-                              <div className={main.rowinput}>
+                <div className={main.rowinput}>
                   <label>Group Name</label>
                   <input
                     className={main.inputhead}
@@ -190,14 +183,14 @@ const MobileMainsection = () => {
             </div>
           </div>
         )}
-          </Popup>
-          <div className={main.notetitlerack}>
-          {grouptittle.length > 0
-            ? grouptittle.map((items, index) => (
-                <Notetile  key={index} title={items} />
-              ))
-              : null}
-            </div>
+      </Popup>
+      <div className={main.notetitlerack}>
+        {grouptittle.length > 0
+          ? grouptittle.map((items, index) => (
+              <Notetile key={index} title={items} />
+            ))
+          : null}
+      </div>
     </div>
   );
 };
